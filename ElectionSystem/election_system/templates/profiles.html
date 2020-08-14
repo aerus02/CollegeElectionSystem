@@ -1,0 +1,56 @@
+{%extends "layout.html"%}
+
+{%block htmlPage%}
+<div class="container" style="padding-top:10px;">
+
+<h2> This is for Category - {{category.name}}  (ID : {{category.id}})</h2>
+{%if candidates%}
+
+<div style="font-size: 25px;padding:30px ">List of Candidates</div>
+
+<table class="table">
+<tr>
+    <th>Candidate Name</th>
+    <th> Candidate ID</th>
+
+</tr>
+{%for candidate in candidates%}
+<tr>
+    <td> {{candidate.name}}</td>
+    <td> {{candidate.id}}</td>
+</tr>
+
+{%endfor%}
+
+</table> 
+{%endif%}
+
+<div>
+<div style="align:center;margin:auto;font-size:25px;"> Add Vote Here</div>
+<form action="" method="POST" style="padding-top :4%;padding-bottom:1.5%;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+    {{form.hidden_tag()}}
+    <fieldset>
+        <input name="categoryID" type="hidden" value="{{category.id}}">
+        <div>
+            {{form.profileID.label()}}
+            {{form.profileID()}}
+        </div>
+        
+
+    </fieldset>
+    <div>
+        {{form.submit()}}
+    </div>
+
+</form>
+</div>
+
+<div>
+<div style="align:center;margin:auto;font-size:25px;"> Logout Here</div>
+<form action = "/logout" method = "GET" style="padding-top :4px;padding-bottom:4px;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+    <button class = "btn">Logout</button>
+</form>
+</div>
+</div>
+
+{%endblock htmlPage%}

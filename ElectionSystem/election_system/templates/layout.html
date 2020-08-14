@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {%if title%} <title>{{title}}</title>
+        {%else%} <title>College Election System</title>
+        {%endif%}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    </head>
+    <body class="container pt-3 " style="background-color:#99bbff;">
+        <div class="container pt-3">
+
+        {%with popups = get_flashed_messages(with_categories=true)%}
+        {%if popups%}
+        {%for category,message in popups%}
+        <div class="alert alert-{{category}}">
+            {{message}}
+        </div>
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
+
+        {%block htmlPage%}
+
+        {%endblock%}
+        </div class="container pt-3">
+
+  
+    </body>
+</html>

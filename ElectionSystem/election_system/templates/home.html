@@ -1,0 +1,72 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        {%if title%} <title>{{title}}</title>
+        {%else%} <title>blog_home</title>
+        {%endif%}
+    </head>
+    <body>
+        <h1>Welcome to the home page  </h1>
+        {%for obj in acquired_data%}
+            <h2>The person's name is <b>{{ obj.Name}} </b></h2>
+            <p>DOB = {{obj.DoB}}</p>
+            <p>Interests are <b><i>{{obj.Interests}}</i></b></p>
+            <p>Roll Num is {{obj.Roll}}</p>
+        {%endfor%}
+    </body>
+</html> -->
+{%extends "layout.html"%}
+{%block htmlPage%}
+<h1>Welcome to the home page  </h1>
+
+<div class="container" style="padding-top:20px;">
+
+<div style="font-size: 25px;padding :30px;">List of Categories</div>
+
+
+<table class="table">
+<tr>
+    <th>Category Name</th>
+    <th>CategoryID</th>
+
+</tr>
+{%if categories%}
+{%for category in categories%}
+<tr>
+    <td> {{category.name}}</td>
+    <td> {{category.id}}</td>
+</tr>
+
+{%endfor%}
+{%endif%}
+</table>    
+</div>
+<div style="align:center;margin:auto;font-size:25px;"> Add Category Name Here</div>
+<form action="/view-profiles" method="POST" style="padding-top :4%;padding-bottom:1.5%;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+    {{form.hidden_tag()}}
+    <fieldset>
+        <div>
+            {{form.category_name.label()}}
+            {{form.category_name()}}
+        </div>
+        
+
+    </fieldset>
+    <div>
+        {{form.submit()}}
+    </div>
+
+</form>
+</div>
+    <div>
+<div style="align:center;margin:auto;font-size:25px;"> Logout Here</div>
+<form action = "/logout" method = "GET" style="padding-top :4px;padding-bottom:4px;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+    <button class = "btn btn-primary">Logout</button>
+</form>
+
+</div>
+</div>
+
+
+
+{%endblock htmlPage%}

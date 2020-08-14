@@ -1,0 +1,108 @@
+
+{%extends "layout.html"%}
+{%block htmlPage%}
+<h1>Welcome to the home page - admin </h1>
+
+
+<div class="container" style="padding-top:10%;">
+
+<div style="align:center;margin:auto;font-size:35px;padding-top:20px;"> Add New Category Here</div>
+<form action="/add-category" method="POST" style="padding-top :4%;padding-bottom:1.5%;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+	{{form1.hidden_tag()}}
+	<fieldset>
+		<div>
+			{{form1.name.label()}}
+			{{form1.name()}}
+		</div>
+		
+
+	</fieldset>
+	<div>
+		{{form1.submit()}}
+	</div>
+
+</form>
+</div>
+
+<div class="container" style="padding-top:10%;">
+
+<div style="align:center;margin:auto;font-size:35px;"> Add New Candidate Here</div>
+<form action="/add-profile" method="POST" style="padding-top :4%;padding-bottom:1.5%;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+	{{form2.hidden_tag()}}
+	<fieldset>
+		<div>
+			{{form2.candidate_name.label()}}
+			{{form2.candidate_name()}}
+		</div>
+		<div>
+			{{form2.collegeID.label()}}
+			{{form2.collegeID()}}
+		</div>
+		<div>
+			{{form2.category_name.label()}}
+			{{form2.category_name()}}
+		</div>
+		
+
+	</fieldset>
+	<div>
+		{{form2.submit()}}
+	</div>
+
+</form>
+</div>
+
+<div class="container" style="padding-top:10%;">
+
+<div style="align:center;margin:auto;font-size:35px;">View Poll Counts Here</div>
+<form action="/poll-count" method="POST" style="padding-top :4%;padding-bottom:1.5%;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+	{{form4.hidden_tag()}}
+	<div>
+		{{form2.category_name.label()}}
+		{{form2.category_name()}}
+	</div>
+	<div>
+		{{form4.submit()}}
+	</div>
+
+</form>
+</div>
+
+
+<div class="container" style="padding-top:10%;">
+
+<div style="align:center;margin:auto;font-size:35px;"> Add User Here</div>
+<form action="/add-user" method="POST" style="padding-top :4%;padding-bottom:1.5%;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+	{{form3.hidden_tag()}}
+	<fieldset>
+		<div>
+			{{form3.username.label()}}
+			{{form3.username()}}
+		</div>
+		<div>
+			{{form3.collegeID.label()}}
+			{{form3.collegeID()}}
+		</div>
+		<div>
+			{{form3.password.label()}}
+			{{form3.password()}}
+		</div>
+		
+
+	</fieldset>
+	<div>
+		{{form3.submit()}}
+	</div>
+
+</form>
+
+	<div>
+			<div style="align:center;margin:auto;font-size:35px;">Logout Here</div>
+
+		<form action = "/logout" method = "GET" style="padding-top :4px;padding-bottom:4px;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+	    <button class = "btn btn-primary">Logout</button>
+	</form>
+	</div>
+</div>
+
+{%endblock htmlPage%}

@@ -1,0 +1,29 @@
+{%extends "layout.html"%}
+
+{%block htmlPage%}
+
+
+<div class="container" style="padding-top:10%;">
+<form action="" method="POST" style="padding-top :4%;padding-bottom:1.5%;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+	{{form.hidden_tag()}}
+	<fieldset>
+		<div>
+			{{form.username.label()}}
+			{{form.username()}}
+		</div>
+
+		<div>
+			{{form.password.label()}}
+			{{form.password()}}
+		</div>
+		
+
+	</fieldset>
+	<div>
+		{{form.submit()}}
+	</div>
+
+</form>
+</div>
+
+{%endblock htmlPage%}

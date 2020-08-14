@@ -1,0 +1,38 @@
+{%extends "layout.html"%}
+
+{%block htmlPage%}
+
+<div class="container">
+<h1>This is Poll Count Page</h1>
+
+<div style="font-size: 25px;padding-top:20px;"> Category : {{category.id}}</div>
+
+<div style="font-size: 25px;padding:30px;">List of Candidates</div>
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>College ID</th>
+		<th>Votes Count</th>
+	</tr>
+{%if candidates%}
+{%for candidate in candidates:%}
+	<tr>
+		<td>{{candidate.name}}</td>
+		<td>{{candidate.collegeID}}</td>
+		<td>{{votes[i]}}</td>
+	</tr>
+
+{%endfor%}
+{%endif%}
+</table>
+
+<div>
+			<div style="align:center;margin:auto;font-size:25px;">Logout Here</div>
+
+		<form action = "/logout" method = "GET" style="padding-top :4px;padding-bottom:4px;text-align:center;margin:auto; width:61%;background-color:#ff9933;">
+	    <button class = "btn btn-primary">Logout</button>
+	</form>
+	</div>
+</div>
+{%endblock htmlPage%}
